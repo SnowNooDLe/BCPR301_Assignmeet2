@@ -1,5 +1,5 @@
 from TurtleDrawer import TurtleDrawer
-from Parser import IntegerParser, StringParser
+from Parser import IntegerParser
 from cmd import Cmd
 from Writer import *
 
@@ -18,15 +18,13 @@ class TurtlePrompt(Cmd):
 
     def do_U(self, arg):
         """Pen Up : U"""
-        self.results.writeToFile("Pen is up", arg)
-        command = StringParser.parse(self, arg)
-        TurtleDrawer.pen_up(command)
+        self.results.writeToFile("Pen is up")
+        TurtleDrawer.pen_up(self)
 
     def do_D(self, arg):
         """Pen Down : D"""
-        self.results.writeToFile("Pen is down", arg)
-        command = StringParser.parse(self, arg)
-        TurtleDrawer.pen_down(command)
+        self.results.writeToFile("Pen is down")
+        TurtleDrawer.pen_down(self)
 
     def do_X(self, arg):
         """Go Along : X 100"""

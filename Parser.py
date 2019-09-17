@@ -1,19 +1,16 @@
 from TIGr import AbstractParser
 import argparse
 
+# Treatment for Duplicate Code
+# Removed StringParser as the method parse was really similar to IntegerParser's parse
+# But at the same time, the place where StringParser was used, did not really need it.
+# So got rid of it, still functioning
 
 class IntegerParser(AbstractParser):
     def parse(self, raw_source):
         self.source = raw_source
         self.data = int(self.source)
         return self.data
-
-
-class StringParser(AbstractParser):
-    def parse(self, raw_source):
-        self.source = raw_source
-        self.command = str(self.source)
-        return self.command
 
 
 class ArgumentParser(AbstractParser):
