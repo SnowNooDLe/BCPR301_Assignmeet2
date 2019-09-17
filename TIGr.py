@@ -59,6 +59,7 @@ class AbstractSourceReader(ABC):
     @abstractmethod
     def go(self):
         pass
+    
 class AbstractTkinter(ABC):
     def __int__(self):
         self.root = Tk()
