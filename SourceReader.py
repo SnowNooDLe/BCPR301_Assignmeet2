@@ -1,6 +1,6 @@
 from TIGr import AbstractSourceReader
 from TurtlePrompt import TurtlePrompt
-from Parser import IntegerParser, StringParser, ArgumentParser
+from Parser import IntegerParser, ArgumentParser
 from TurtleDrawer import TurtleDrawer
 from TkinterDrawer import TkinterDrawer
 from Writer import *

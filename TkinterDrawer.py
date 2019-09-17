@@ -1,5 +1,5 @@
 from TIGr import AbstractDrawer
-from Parser import IntegerParser, StringParser
+from Parser import IntegerParser
 from tkinter import *
 from tkinter import ttk
 from Writer import *
@@ -179,3 +179,5 @@ class TkinterDrawer(AbstractDrawer):
         self.file.writeToFile("Starting TKinter Drawer. Here we go ! ")
         self.setup()
         self.root.mainloop()
+
+        

@@ -39,4 +39,3 @@ class TurtleDrawer(AbstractDrawer):
 
     def draw_circle(self,radius):
         turtle.circle(radius)
-
