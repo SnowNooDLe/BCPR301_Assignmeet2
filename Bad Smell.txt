@@ -1,0 +1,4 @@
+1. Long method - TKinterDrawer.py
+2. Duplicated Code - Parser.py
+3. Large Class - Potentially extract class for drawing shapes ?
+4. 
