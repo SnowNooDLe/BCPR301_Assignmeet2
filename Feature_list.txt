@@ -2,9 +2,10 @@ Assignment One Feature List
 
 Drawer:
 Select pen size
-Toggle Pen Up/Down
+Pen down
+Pen up
 Draw a line (toward east, north, west and south)
-Change cooridate in either X or Y
+Change cooridate in either X or Y ( Go along & Go down)
 Draw a square
 Draw a circle
 Draw a triangle

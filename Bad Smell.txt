@@ -1,4 +1,4 @@
 1. Long method - TKinterDrawer.py
-2. Duplicated Code - Parser.py
+2. Duplicated Code - Parser.py - Apperantly, not a right bad smell, treatment i did was remove class as its not part of our interface
 3. Large Class - Potentially extract class for drawing shapes ?
-4. 
+4. A lazy class bad smell.
