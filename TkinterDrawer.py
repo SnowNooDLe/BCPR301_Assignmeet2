@@ -13,6 +13,19 @@ class TkinterDrawer(AbstractDrawer):
         self.north = Entry(self.root)
         self.direction = 0
         self.distance = 0
+        self.c = Canvas()
+        self.x = 0
+        self.y = 0
+        self.entry = 0.0
+        self.line_width = 1
+        self.pen_state = True
+        # so can be used in every mehotds.
+        self.file = Writer("TKInterDrawer_Result.txt")
+    
+        # Treatment part, extract method
+        self.setui()
+    
+    def setui(self):
         self.pen_button = Button()
         self.color_button = Button()
         self.eraser_button = Button()
@@ -27,18 +40,11 @@ class TkinterDrawer(AbstractDrawer):
         self.down = Button()
         self.clear_canvas = Button()
         self.choose_size_button = Scale()
-        self.c = Canvas()
-        self.x = 0
-        self.y = 0
-        self.entry = 0.0
-        self.line_width = 1
+        self.line_width = self.choose_size_button.get()
         self.button = Button()
         self.north = Entry()
         self.entry = self.north.get()
-        self.line_width = self.choose_size_button.get()
-        self.pen_state = True
-        # so can be used in every mehotds.
-        self.file = Writer("TKInterDrawer_Result.txt")
+
 
     def setup(self):
         self.root.geometry("510x645")
