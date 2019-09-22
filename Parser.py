@@ -1,7 +1,7 @@
 from TIGr import AbstractParser
 import argparse
 
-# Treatment for Duplicate Code
+# Treatment for Lazy code
 # Removed StringParser as the method parse was really similar to IntegerParser's parse
 # But at the same time, the place where StringParser was used, did not really need it.
 # So got rid of it, still functioning
