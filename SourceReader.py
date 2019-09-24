@@ -8,6 +8,7 @@ from writer import *
 
 class ArgumentSourceReader(AbstractSourceReader):
     results = Writer("SourceReader_Result.txt")
+
     def go(self):
         result = ArgumentParser.parse(self, '')
         if result == 'g':
@@ -23,7 +24,8 @@ class ArgumentSourceReader(AbstractSourceReader):
             self.results.writeToFile("Exiting program")
             exit()
         else:
-            self.results.writeToFile("Graphics from else as arguments were wrong")
+            self.results.writeToFile(("Graphics from else as "
+                                      "arguments were wrong"))
             print('graphics')
 
 

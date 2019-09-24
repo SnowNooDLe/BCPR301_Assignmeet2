@@ -70,11 +70,11 @@ class TurtlePrompt(Cmd):
         for i in directions:
             TurtleDrawer.draw_line(self, i, command)
 
-    def do_circle(self,arg):
+    def do_circle(self, arg):
         """Draw Circle"""
         self.results.writeToFile("Drawing a circle")
         command = IntegerParser.parse(self, arg)
-        TurtleDrawer.draw_circle(self,command)
+        TurtleDrawer.draw_circle(self, command)
 
     def do_Exit(self, arg):
         """Exit Turtle CMD"""
