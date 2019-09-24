@@ -1,4 +1,4 @@
-from TIGr import AbstractDrawer
+from tigr import AbstractDrawer
 import turtle
 #Alliah & Caitlyn
 

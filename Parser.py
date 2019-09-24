@@ -1,4 +1,4 @@
-from TIGr import AbstractParser
+from tigr import AbstractParser
 import argparse
 
 # Treatment for Lazy code
