@@ -1,7 +1,7 @@
-from TurtleDrawer import TurtleDrawer
+from turtledrawer import TurtleDrawer
 from Parser import IntegerParser
 from cmd import Cmd
-from Writer import *
+from writer import *
 
 
 class TurtlePrompt(Cmd):

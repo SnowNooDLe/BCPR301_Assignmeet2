@@ -1,9 +1,9 @@
-from TIGr import AbstractSourceReader
-from TurtlePrompt import TurtlePrompt
+from tigr import AbstractSourceReader
+from turtleprompt import TurtlePrompt
 from Parser import IntegerParser, ArgumentParser
-from TurtleDrawer import TurtleDrawer
-from TkinterDrawer import TkinterDrawer
-from Writer import *
+from turtledrawer import TurtleDrawer
+from tkinterdrawer import TKinterDrawerPackage
+from writer import *
 
 
 class ArgumentSourceReader(AbstractSourceReader):
@@ -18,7 +18,7 @@ class ArgumentSourceReader(AbstractSourceReader):
             TurtlePrompt().cmdloop()
         elif result == 'k':
             self.results.writeToFile("Running TKInter Drawer")
-            TkinterDrawer().start()
+            TKinterDrawerPackage().start()
         elif result == 'e':
             self.results.writeToFile("Exiting program")
             exit()

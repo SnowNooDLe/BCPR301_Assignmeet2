@@ -59,15 +59,4 @@ class AbstractSourceReader(ABC):
     @abstractmethod
     def go(self):
         pass
-    
-class AbstractTkinter(ABC):
-    def __int__(self):
-        self.root = Tk()
-        self.direction = 0
-        self.distance = 0
-        self.pen_button = Button()
-        self.color_button = Button()
-        self.eraser_button = Button()
-        self.choose_size_button = Scale()
-        self.c = Canvas()
 

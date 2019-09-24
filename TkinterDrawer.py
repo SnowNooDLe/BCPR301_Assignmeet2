@@ -1,19 +1,16 @@
-from TIGr import AbstractDrawer
+from tigr import AbstractDrawer
 from Parser import IntegerParser
 from tkinter import *
 from tkinter import ttk
-from Writer import *
+from writer import *
 import math
 #Alliah & Chris
 
 class TkinterDrawer(AbstractDrawer):
 
     def __init__(self):
-        self.root = Tk()
-        self.north = Entry(self.root)
         self.direction = 0
         self.distance = 0
-        self.c = Canvas(self.root, bg='white', width=500, height=500)
         self.x = 250
         self.y = 250
         self.entry = 0.0
@@ -21,10 +18,12 @@ class TkinterDrawer(AbstractDrawer):
         self.pen_state = True
         # so can be used in every mehotds.
         self.file = Writer("TKInterDrawer_Result.txt")
-    
-        # Treatment part, extract method
-        self.setui()
-    
+        
+    def setupcanvas(self):
+        self.root = Tk()
+        self.north = Entry(self.root)
+        self.c = Canvas(self.root, bg='white', width=500, height=500)
+
     def setui(self):
         self.pen_button = Button()
         self.color_button = Button()
@@ -54,11 +53,7 @@ class TkinterDrawer(AbstractDrawer):
         self.up = Button(self.root, text='Pen up', command=lambda: self.pen_up())
         self.down = Button(self.root, text='Pen down', command=lambda: self.pen_down())
         self.clear_canvas = Button(self.root, text='Clear Canvas', command=lambda: self.reset())
-        self.square_button = Button(self.root, text='square', command=lambda: self.draw_square()) 
-        self.circle_button = Button(self.root, text='circle', command=lambda: self.draw_circle())
-        self.triangle_button = Button(self.root, text='triangle', command=lambda: self.draw_triangle())
         
-
     def buttonlocationsetup(self):
         self.choose_size_button.grid(row=1, column=5)
         self.north_button.grid(row=1, column=2, sticky=W,padx = 10)
@@ -74,10 +69,7 @@ class TkinterDrawer(AbstractDrawer):
 
     def setup(self):
         self.root.geometry("510x645")
-        self.choose_size_button = 1
         self.color = "black"
-        self.buttonsetup()
-        self.buttonlocationsetup()
 
         # Idea of getting value to be stored in txt file for testing
         self.file.writeToFile("Pen size", self.choose_size_button)
@@ -95,7 +87,7 @@ class TkinterDrawer(AbstractDrawer):
         separator.grid(row=1, column=3, sticky=NS)
 
         self.c.grid(row=60, columnspan=60)
-        self.line_width = self.choose_size_button.get()
+        self.line_width = 1
         self.c.bind('<B1-Motion>', self.draw_line)
         self.c.bind('<ButtonRelease-1>', self.reset)
 
@@ -151,6 +143,24 @@ class TkinterDrawer(AbstractDrawer):
         self.file.writeToFile("New X position", self.x)
         self.file.writeToFile("New Y position", self.y)
 
+    def reset(self):
+        self.file.writeToFile("We are restting")
+        self.x = 250
+        self.y = 250
+        self.c.delete("all")
+        self.file.writeToFile("Back to original X coordinate", self.x)
+        self.file.writeToFile("Back to original Y coordinate", self.y)
+
+        
+class TKinterDrawerShapes(TkinterDrawer):
+    def __init__(self):
+        super().__init__()
+
+    def adddrawingbuttons(self):
+        self.square_button = Button(self.root, text='square', command=lambda: self.draw_square()) 
+        self.circle_button = Button(self.root, text='circle', command=lambda: self.draw_circle())
+        self.triangle_button = Button(self.root, text='triangle', command=lambda: self.draw_triangle())
+
     def draw_square(self):
         self.file.writeToFile("We are drawing a square")
         if self.pen_state:
@@ -168,18 +178,20 @@ class TkinterDrawer(AbstractDrawer):
         self.file.writeToFile("We are drawing a triangle")
         self.c.create_line(55, 85, 155, 85, 105, 180, 55, 85, width=self.line_width)
 
-    def reset(self):
-        self.file.writeToFile("We are restting")
-        self.x = 250
-        self.y = 250
-        self.c.delete("all")
-        self.file.writeToFile("Back to original X coordinate", self.x)
-        self.file.writeToFile("Back to original Y coordinate", self.y)
 
+class TKinterDrawerPackage(object):
+    def __init__(self):
+        self.drawer = TKinterDrawerShapes()
 
     def start(self):
-        self.file.writeToFile("Starting TKinter Drawer. Here we go ! ")
-        self.setup()
-        self.root.mainloop()
-
+        self.drawer.file.writeToFile("Starting TKinter Drawer. Here we go ! ")
         
+        self.drawer.setupcanvas()
+        # Treatment part, extract method
+        self.drawer.setui()
+
+        self.drawer.setup()
+        self.drawer.buttonsetup()
+        self.drawer.adddrawingbuttons()
+        self.drawer.buttonlocationsetup()
+        self.drawer.root.mainloop()
